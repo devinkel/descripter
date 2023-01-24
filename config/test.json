@@ -1,0 +1,17 @@
+{
+    "App": {
+        "resources": {
+            "OpenAi": {
+                "apiUrl": "https://api.openai.com/v1/completions",
+                "apiKey": "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",
+                "organization": "org-y4219ARyx0uIwugQ0hjVLNc6"
+            }
+        },
+        "database": {
+            "mongoUrl": "mongodb://localhost:27017/surf-forecast-test"
+        },
+        "logger": {
+            "enabled": false
+        }
+    }
+}

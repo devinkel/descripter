@@ -1,0 +1,43 @@
+// arquivo especifica os arquivos raiz e as opções do compilador necessárias para compilar o projeto.
+{
+    "compilerOptions": {
+        "target":"ES2019",
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "lib": ["ES2019"],
+        "sourceMap": true, //consegue voltar os tipos mesmo com a app compilada
+        "outDir": "dist", //onde vai sair o codigo compilado
+        "strict": true, //arquivo especifica os arquivos raiz e as opções do compilador necessárias para compilar o projeto.
+        "noImplicitAny": true, //casos em que nenhuma anotação de tipo está presente, o TypeScript retornará a um tipo de anypara uma variável quando não puder inferir o tipo.
+        "strictNullChecks": true, //não deixa definir null ou undefined para variaveis e constantes
+        "strictFunctionTypes": true, //Obrigatório passar o type da função
+        "noImplicitThis": true,
+        "resolveJsonModule": true,
+        "alwaysStrict": true,
+        "removeComments": true,
+        "noImplicitReturns": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@test/*":["./test/*"]
+        },
+        "rootDirs": [
+            "./src",
+            "./test"
+        ],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+    ],
+    "exclude": [
+        "./node_modules/*",
+        "dist"
+    ]
+
+}

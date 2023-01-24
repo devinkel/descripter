@@ -1,0 +1,19 @@
+{
+	"choices": [
+		{
+			"finish_reason": "length",
+			"index": 0,
+			"logprobs": null,
+			"text": "·This beautiful dress is perfect for any special occasion. Its elegant silhouette is"
+		}
+	],
+	"created": 1674413676,
+	"id": "cmpl-6bZm84mS2neMJ69NhKk7IcdBKD3jV",
+	"model": "text-davinci-003",
+	"object": "text_completion",
+	"usage": {
+		"completion_tokens": 16,
+		"prompt_tokens": 7,
+		"total_tokens": 23
+	}
+}

@@ -1,0 +1,23 @@
+{
+    "App": {
+      "port": 3000,
+      "database": {
+        "mongoUrl": "mongodb://localhost:27017/descripter"
+      },
+      "auth": {
+        "key": "some-key",
+        "tokenExpiresIn": "200000000000"
+      },
+      "resources": {
+        "OpenAi": {
+          "apiUrl": "https://api.openai.com/v1/completions",
+          "apiKey": "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",
+          "organization": "org-y4219ARyx0uIwugQ0hjVLNc6"
+        }
+      },
+      "logger": {
+        "enabled": true,
+        "level": "info"
+      }
+    }
+  }
