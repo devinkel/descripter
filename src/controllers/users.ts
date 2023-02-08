@@ -18,6 +18,21 @@ export class UsersController extends BaseController {
         }
     }
 
+    @Post('checkemail')
+    public async checkEmail(req: Request, res: Response): Promise<Response> {
+        const emailToCheck = req.body.email;
+        const checkedEmail = await User.findOne({ email: emailToCheck }).select('email')
+
+        if (!checkedEmail) {
+            return this.sendErrorResponse(res, {
+                code: 404,
+                message: "E-mail not found"
+            });
+        }
+
+        return res.send( checkedEmail )
+    }
+
     @Post('authenticate')
     public async authenticate(
         req: Request,

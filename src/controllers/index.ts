@@ -1,7 +1,8 @@
+import { Controller, Get } from '@overnightjs/core';
 import logger from '@src/logger';
 import { CUSTOM_VALIDATION } from '@src/models/users';
 import ApiError, { IApiError } from '@src/utils/errors/api-error';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 
 export abstract class BaseController {
@@ -40,5 +41,21 @@ export abstract class BaseController {
 
     protected sendErrorResponse(res: Response, apiError: IApiError): Response {
         return res.status(apiError.code).send(ApiError.format(apiError));
+    }
+}
+
+@Controller('/')
+export class HomeController {
+    @Get("")
+    public async getHome(req: Request, res: Response): Promise<void> {
+        try {
+            res.status(200).send({
+                message: 'Olá, eu sou o DESCRIPTER!'
+            });
+        } catch (error:any) {
+            res.status(500).send({
+                message: 'Something went wrong'
+            });
+        }
     }
 }

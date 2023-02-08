@@ -6,7 +6,7 @@ import { OpenAIApi, Configuration } from 'openai';
 export class ClientRequestError extends InternalError {
     constructor(message: string) {
         const internalMessage =
-            'Unexpected error when trying to communicate to StormGlass';
+            'Unexpected error when trying to communicate to OpenAi';
         super(`${internalMessage}:${message}`);
     }
 }
@@ -20,8 +20,8 @@ export default class OpenAiClient {
 
         try {
             const configuration = new Configuration({
-                apiKey: process.env.API_KEY,
-                // organization: OpenAiResourceConfig.get('organization')
+                apiKey: OpenAiResourceConfig.get('apiKey'),
+                organization: OpenAiResourceConfig.get('organization')
             });
 
             const openAi = new OpenAIApi(configuration);
@@ -35,7 +35,7 @@ export default class OpenAiClient {
 
             return response;
         } catch (error: any) {
-            throw new ClientRequestError(JSON.stringify(error));
+            throw new ClientRequestError(error);
         }
     }
 }
