@@ -3,7 +3,7 @@
         "resources": {
             "OpenAi": {
                 "apiUrl": "https://api.openai.com/v1/completions",
-                "apiKey": "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",
+                "apiKey": "API_KEY",
                 "organization": "org-y4219ARyx0uIwugQ0hjVLNc6"
             }
         },

@@ -1,9 +1,10 @@
 import { Controller, Middleware, Post, Get } from '@overnightjs/core';
 import { User } from '@src/models/users';
-import { Request, Response } from 'express';
+import { Request, Response, response } from 'express';
 import { BaseController } from '.';
 import { AuthService } from '@src/services/auth';
 import { authMiddleware } from '@src/middlewares/auth';
+import { send } from 'process';
 
 @Controller('users')
 export class UsersController extends BaseController {
@@ -39,6 +40,12 @@ export class UsersController extends BaseController {
         res: Response
     ): Promise<Response | undefined> {
         const { email, password } = req.body;
+
+        if(!password){
+            return this.sendErrorResponse(res,{code: 401, message: 'informe uma senha'});
+        }
+
+
         const user = await User.findOne({ email: email });
 
         if (!user) {
@@ -47,6 +54,7 @@ export class UsersController extends BaseController {
                 message: 'User not found!',
             });
         }
+
 
         if (!(await AuthService.comparePasswords(password, user.password))) {
             return this.sendErrorResponse(res, {

@@ -20,7 +20,8 @@ const schema = new mongoose.Schema(
         name: { type: String, required: true },
         email: {
             type: String,
-            unique: [true, 'E-mail must be unique'],
+            required: true,
+            unique: true // `email` must be unique
         },
         password: { type: String, requerid: true },
     },
